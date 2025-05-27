@@ -1,0 +1,254 @@
+/* FileConvert.css */
+
+.file-convert-container {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .file-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .file-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  .file-description {
+    color: #4b5563;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    font-size: 1rem;
+  }
+  
+  .file-info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eff6ff;
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  .file-info-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .file-icon-box {
+    background: #dbeafe;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .file-name {
+    font-weight: 500;
+    color: #1f2937;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .file-meta {
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+  
+  .clear-btn {
+    color: #9ca3af;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .clear-btn:hover {
+    color: #4b5563;
+  }
+  
+  .format-box {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  .btn-convert {
+    background: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+  }
+  
+  .btn-convert:hover {
+    background: #2563eb;
+  }
+  
+  .btn-convert:active {
+    transform: scale(0.97);
+  }
+  
+  .btn-convert:disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  .convert-success {
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  .download-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #10b981;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    text-decoration: none;
+  }
+  
+  .download-link:hover {
+    background: #059669;
+  }
+  
+  .download-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .error-box {
+    background: #fef2f2;
+    color: #b91c1c;
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  /* Why Choose Us Section */
+  .why-section {
+    margin-top: 3rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 2rem;
+  }
+  
+  .why-card {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+  
+  .why-icon {
+    background: #dbeafe;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    margin: auto;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Ad Modal */
+  .ad-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  .ad-modal-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .ad-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .ad-modal-close:hover {
+    color: #4b5563;
+  }
+  
+  .ad-box {
+    background: #f3f4f6;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-disabled {
+    background: #d1d5db;
+    color: #374151;
+    cursor: not-allowed;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .btn-continue {
+    background: #22c55e;
+    color: white;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+    border: none;
+  }
+  
+  .btn-continue:hover {
+    background: #16a34a;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

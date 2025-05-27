@@ -1,0 +1,105 @@
+.file-upload-container {
+    border: 2px dashed #ccc;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .dragging {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+  }
+  .default-style {
+    background-color: #fff;
+  }
+  .upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .upload-icon-wrapper {
+    background-color: #dbeafe;
+    padding: 0.75rem;
+    border-radius: 9999px;
+  }
+  .upload-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #3b82f6;
+  }
+  .upload-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #1f2937;
+  }
+  .upload-subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  .supported-formats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .format-item {
+    text-align: center;
+  }
+  .format-icon-wrapper {
+    background-color: #f3f4f6;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .format-label {
+    font-size: 0.75rem;
+    color: #4b5563;
+    margin-top: 0.25rem;
+  }
+  .file-types-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+  .file-input-hidden {
+    display: none;
+  }
+  .file-select-button {
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  .file-select-button:hover {
+    background-color: #2563eb;
+  }
+  .file-error {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  .file-info {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 1rem;
+  }
+  

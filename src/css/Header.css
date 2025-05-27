@@ -1,0 +1,76 @@
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .header-container {
+    max-width: 64rem; /* max-w-5xl */
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .header-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700;
+    background: linear-gradient(to right, #3b82f6, #2dd4bf); /* blue-500 to teal-400 */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .header-nav {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .header-nav {
+      display: block;
+    }
+  }
+  
+  .nav-list {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    color: #4b5563; /* text-gray-600 */
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: #3b82f6; /* hover:text-blue-500 */
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .signup-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .signup-button:hover {
+    background-color: #2563eb; /* blue-600 */
+  }
+  
