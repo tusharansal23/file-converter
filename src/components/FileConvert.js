@@ -42,7 +42,7 @@ const FileConvert = () => {
     console.log([...formData.entries()]); // Logs what's actually in the formData
   
     try {
-      const response = await fetch('http://localhost:4000/convert', {
+      const response = await fetch('https://file-converter-backend-1yvo.onrender.com/convert', {
         method: 'POST',
         body: formData,
       });
