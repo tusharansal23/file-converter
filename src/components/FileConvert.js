@@ -13,6 +13,7 @@ const FileConvert = () => {
   const [isConverted, setIsConverted] = useState(false);
   const [showAdModal, setShowAdModal] = useState(false);
   const [error, setError] = useState(null);
+  const [progress, setProgress] = useState(0);
 
   const downloadLinkRef = useRef(null);
 
@@ -33,71 +34,66 @@ const FileConvert = () => {
       alert("Please upload a file and select target format");
       return;
     }
-  
+
     const formData = new FormData();
     const fileToSend = fileInfo.file || fileInfo;
     formData.append('file', fileToSend);
     formData.append('targetFormat', targetFormat);
-  
-    console.log([...formData.entries()]); // Logs what's actually in the formData
-  
+
     try {
-      const response = await fetch('https://file-converter-backend-1yvo.onrender.com/convert', {
-        method: 'POST',
-        body: formData,
-      });
-  
-      if (!response.ok) throw new Error('Conversion failed');
-  
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `converted-file.${targetFormat}`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:4000/convert");
+      xhr.responseType = "blob";
+
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          const percent = Math.round((e.loaded / e.total) * 100);
+          setProgress(percent);
+        }
+      };
+
+      xhr.onloadstart = () => {
+        setIsConverting(true);
+        setProgress(0);
+      };
+
+      xhr.onloadend = () => setIsConverting(false);
+
+      xhr.onload = () => {
+        const blob = xhr.response;
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `converted-file.${targetFormat}`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        setIsConverted(true);
+        setProgress(100);
+      };
+
+      xhr.onerror = () => {
+        alert("Conversion failed");
+        setProgress(0);
+      };
+
+      xhr.send(formData);
     } catch (error) {
       console.error(error);
       alert('Conversion failed');
     }
-  
+
     setError(null);
-  
+
     if (fileInfo.size > 50 * 1024 * 1024) {
       setShowAdModal(true);
       return;
     }
-  
-    await convertFile();
   }, [fileInfo, targetFormat]);
-  
-
-  const convertFile = async () => {
-    try {
-      setIsConverting(true);
-
-      // Simulate conversion process
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      setIsConverting(false);
-      setIsConverted(true);
-
-      if (downloadLinkRef.current) {
-        const url = URL.createObjectURL(fileInfo.file);
-        downloadLinkRef.current.href = url;
-        downloadLinkRef.current.download = `converted-file.${targetFormat}`;
-      }
-    } catch (err) {
-      setIsConverting(false);
-      setError('Conversion failed. Please try again.');
-      console.error(err);
-    }
-  };
 
   const handleAdCompleted = () => {
     setShowAdModal(false);
-    convertFile();
   };
 
   const clearFile = () => {
@@ -105,6 +101,7 @@ const FileConvert = () => {
     setTargetFormat('');
     setIsConverted(false);
     setError(null);
+    setProgress(0);
   };
 
   return (
@@ -160,15 +157,15 @@ const FileConvert = () => {
             </div>
 
             {targetFormat && (
-              <div className="flex justify-center">
+              <div className="flex flex-col justify-center items-center space-y-4">
                 <button
                   onClick={handleConvert}
                   disabled={isConverting || !targetFormat}
                   className={`py-3 px-6 rounded-lg text-white font-medium flex items-center space-x-2 shadow-sm transition-all
                     ${isConverting
-                      ? 'bg-blue-400 cursor-not-allowed'
-                      : 'bg-blue-500 hover:bg-blue-600 active:transform active:scale-95'
-                    }`}
+                    ? 'bg-blue-400 cursor-not-allowed'
+                    : 'bg-blue-500 hover:bg-blue-600 active:transform active:scale-95'
+                  }`}
                 >
                   {isConverting ? (
                     <>
@@ -184,6 +181,18 @@ const FileConvert = () => {
                     </>
                   )}
                 </button>
+
+                {isConverting && (
+                  <div className="w-full max-w-md">
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div
+                        className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
+                        style={{ width: `${progress}%` }}
+                      ></div>
+                    </div>
+                    <p className="text-sm text-gray-600 text-center mt-1">{progress}%</p>
+                  </div>
+                )}
               </div>
             )}
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileIcon } from 'lucide-react';
 import "../css/Header.css";
+import AboutUs from "../components/AboutUs";
 
 const Header = () => {
   return (
@@ -23,8 +24,9 @@ const Header = () => {
             <a href="#" className="nav-link">Pricing</a>
           </li>
           <li>
-            <a href="#" className="nav-link">FAQ</a>
+            <a href="/about" className="nav-link">About Us</a>
           </li>
+
         </ul>
       </nav>
       <div className="header-actions">

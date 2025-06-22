@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileIcon, Github, Twitter, Facebook } from 'lucide-react';
 import "../css/Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,7 +25,12 @@ const Footer = () => {
       {/* Repeat the next three blocks with .footer-section-title and .footer-links */}
     </div>
     <div className="footer-bottom">
-      <p>© {new Date().getFullYear()} ConvertMaster. All rights reserved.</p>
+    <p className="text-sm text-gray-500">
+      © {new Date().getFullYear()} Free2PDF. All rights reserved. |
+        <Link to="/terms" className="text-blue-500 hover:underline mx-1">Terms</Link> |
+        <Link to="/privacy" className="text-blue-500 hover:underline mx-1">Privacy</Link> |
+        <Link to="/contact" className="text-blue-500 hover:underline mx-1">Contact</Link>
+    </p>
     </div>
   </div>
 </footer>
